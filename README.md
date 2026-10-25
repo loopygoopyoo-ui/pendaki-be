@@ -6,7 +6,7 @@ Dibuat oleh **Oktaviani Ramadhani** (21114022610038) sebagai Tugas Akhir Learnin
 
 | Info | Keterangan |
 | --- | --- |
-| URL Deployment | https://NAMA-PROJECT.vercel.app |
+| URL Deployment | https://pendaki be |
 | Repository | https://github.com/loopygoopyoo-ui/pendaki-be |
 | ERD | `erd.png` (source: `erd.dot`) |
 | Skema SQL | `schema.sql` |
@@ -87,7 +87,7 @@ Seluruh endpoint diuji lewat Postman menggunakan URL Vercel. Import file `postma
 ### 1. tambahDataPendaki
 
 - **Method:** POST
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki`
+- **URL:** `https://pendaki be/pendaki`
 - **Deskripsi:** Menambahkan data pendaki baru ke database
 - **Header:** `Content-Type: application/json`
 - **Request Body:**
