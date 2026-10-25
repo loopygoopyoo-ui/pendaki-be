@@ -6,7 +6,7 @@ Dibuat oleh **Oktaviani Ramadhani** (21114022610038) sebagai Tugas Akhir Learnin
 
 | Info | Keterangan |
 | --- | --- |
-| URL Deployment | https://pendaki-be.vercel.app . vercell .app . vercell .app |
+| URL Deployment | https://pendaki-be.vercel.app |
 | Repository | https://github.com/loopygoopyoo-ui/pendaki-be |
 | ERD | `erd.png` (source: `erd.dot`) |
 | Skema SQL | `schema.sql` |
