@@ -1,0 +1,364 @@
+{
+  "info": {
+    "name": "API Pendataan Pendaki",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. tambahDataPendaki",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nik\": \"3322010303000003\",\n  \"nama_lengkap\": \"Andi Pratama\",\n  \"jenis_kelamin\": \"L\",\n  \"tanggal_lahir\": \"2002-03-03\",\n  \"no_hp\": \"081211112222\",\n  \"alamat\": \"Tegal\",\n  \"kontak_darurat_nama\": \"Ibu Andi\",\n  \"kontak_darurat_hp\": \"081233334444\"\n}"
+        }
+      }
+    },
+    {
+      "name": "2. getDataPendaki",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki"
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. getDataPendakiById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. ubahDataPendaki (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"no_hp\": \"081299990000\"\n}"
+        }
+      }
+    },
+    {
+      "name": "5. hapusDataPendaki",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "3"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. cariDataPendaki",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/cari?q=budi",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "cari"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "budi"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. tambahDataGunung",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/gunung",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "gunung"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama\": \"Gunung Slamet\",\n  \"lokasi\": \"Banyumas, Jawa Tengah\",\n  \"ketinggian\": 3428,\n  \"kuota_harian\": 120\n}"
+        }
+      }
+    },
+    {
+      "name": "8. getDataGunung",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/gunung",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "gunung"
+          ]
+        }
+      }
+    },
+    {
+      "name": "9. cariDataGunung",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/gunung/cari?nama=ungaran",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "gunung",
+            "cari"
+          ],
+          "query": [
+            {
+              "key": "nama",
+              "value": "ungaran"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "10. tambahDataPendakian",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/pendakian",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendakian"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pendaki_id\": 2,\n  \"jalur_id\": 1,\n  \"tanggal_naik\": \"2026-11-01\",\n  \"tanggal_turun\": \"2026-11-02\"\n}"
+        }
+      }
+    },
+    {
+      "name": "11. getDataPendakian",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendakian",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendakian"
+          ]
+        }
+      }
+    },
+    {
+      "name": "12. getDataPendakianByGunung",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/gunung/1/pendakian",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "gunung",
+            "1",
+            "pendakian"
+          ]
+        }
+      }
+    },
+    {
+      "name": "13. ubahDataPendakian (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/pendakian/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendakian",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"selesai\"\n}"
+        }
+      }
+    },
+    {
+      "name": "14. hapusDataPendakian",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendakian/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendakian",
+            "2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "15. getRiwayatPendakian",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/1/riwayat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "1",
+            "riwayat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Contoh ERROR: pendaki tidak ada (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pendaki/9999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pendaki",
+            "9999"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Contoh ERROR: field kosong (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/gunung",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "gunung"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama\": \"Gunung Tanpa Lokasi\"\n}"
+        }
+      }
+    }
+  ]
+}

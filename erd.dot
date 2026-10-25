@@ -1,0 +1,26 @@
+digraph ERD {
+  rankdir=LR; splines=true; nodesep=0.5; ranksep=1.1;
+  node [shape=plain, fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=10, color="#555555"];
+
+  gunung [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#2e7d32"><FONT COLOR="white"><B>gunung</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT">nama (unique)</TD></TR><TR><TD ALIGN="LEFT">lokasi</TD></TR><TR><TD ALIGN="LEFT">ketinggian</TD></TR><TR><TD ALIGN="LEFT">kuota_harian</TD></TR><TR><TD ALIGN="LEFT">status</TD></TR></TABLE>>];
+  jalur [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#2e7d32"><FONT COLOR="white"><B>jalur</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> gunung_id</TD></TR><TR><TD ALIGN="LEFT">nama</TD></TR><TR><TD ALIGN="LEFT">panjang_km</TD></TR><TR><TD ALIGN="LEFT">estimasi_jam</TD></TR><TR><TD ALIGN="LEFT">tingkat_kesulitan</TD></TR></TABLE>>];
+  pos [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#2e7d32"><FONT COLOR="white"><B>pos</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> jalur_id</TD></TR><TR><TD ALIGN="LEFT">nama</TD></TR><TR><TD ALIGN="LEFT">urutan</TD></TR><TR><TD ALIGN="LEFT">ketinggian</TD></TR></TABLE>>];
+  pendaki [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#1565c0"><FONT COLOR="white"><B>pendaki</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT">nik (unique)</TD></TR><TR><TD ALIGN="LEFT">nama_lengkap</TD></TR><TR><TD ALIGN="LEFT">jenis_kelamin</TD></TR><TR><TD ALIGN="LEFT">tanggal_lahir</TD></TR><TR><TD ALIGN="LEFT">no_hp</TD></TR><TR><TD ALIGN="LEFT">alamat</TD></TR><TR><TD ALIGN="LEFT">kontak_darurat_nama</TD></TR><TR><TD ALIGN="LEFT">kontak_darurat_hp</TD></TR><TR><TD ALIGN="LEFT">created_at</TD></TR></TABLE>>];
+  kesehatan_pendaki [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#1565c0"><FONT COLOR="white"><B>kesehatan_pendaki</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> pendaki_id (unique)</TD></TR><TR><TD ALIGN="LEFT">golongan_darah</TD></TR><TR><TD ALIGN="LEFT">riwayat_penyakit</TD></TR><TR><TD ALIGN="LEFT">alergi</TD></TR><TR><TD ALIGN="LEFT">surat_sehat</TD></TR><TR><TD ALIGN="LEFT">tanggal_cek</TD></TR></TABLE>>];
+  registrasi [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#ef6c00"><FONT COLOR="white"><B>registrasi (pendakian)</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT">kode_booking (unique)</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> jalur_id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> ketua_id</TD></TR><TR><TD ALIGN="LEFT">tanggal_naik</TD></TR><TR><TD ALIGN="LEFT">tanggal_turun</TD></TR><TR><TD ALIGN="LEFT">status</TD></TR><TR><TD ALIGN="LEFT">created_at</TD></TR></TABLE>>];
+  anggota_registrasi [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#6a1b9a"><FONT COLOR="white"><B>anggota_registrasi</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK, FK</B> registrasi_id</TD></TR><TR><TD ALIGN="LEFT"><B>PK, FK</B> pendaki_id</TD></TR><TR><TD ALIGN="LEFT">peran</TD></TR><TR><TD ALIGN="LEFT">waktu_turun</TD></TR></TABLE>>];
+  pembayaran [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#ef6c00"><FONT COLOR="white"><B>pembayaran</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> registrasi_id (unique)</TD></TR><TR><TD ALIGN="LEFT">jumlah</TD></TR><TR><TD ALIGN="LEFT">metode</TD></TR><TR><TD ALIGN="LEFT">status</TD></TR><TR><TD ALIGN="LEFT">dibayar_pada</TD></TR></TABLE>>];
+  log_pos [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="#6a1b9a"><FONT COLOR="white"><B>log_pos</B></FONT></TD></TR><TR><TD ALIGN="LEFT"><B>PK</B> id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> registrasi_id</TD></TR><TR><TD ALIGN="LEFT"><B>FK</B> pos_id</TD></TR><TR><TD ALIGN="LEFT">waktu_lewat</TD></TR><TR><TD ALIGN="LEFT">jumlah_orang</TD></TR><TR><TD ALIGN="LEFT">catatan</TD></TR></TABLE>>];
+
+  gunung -> jalur [label="1 : N", arrowhead=crow, arrowtail=tee, dir=both];
+  jalur -> pos [label="1 : N", arrowhead=crow, arrowtail=tee, dir=both];
+  jalur -> registrasi [label="1 : N", arrowhead=crow, arrowtail=tee, dir=both];
+  pendaki -> kesehatan_pendaki [label="1 : 1", arrowhead=tee, arrowtail=tee, dir=both];
+  pendaki -> registrasi [label="1 : N (ketua)", arrowhead=crow, arrowtail=tee, dir=both];
+  pendaki -> anggota_registrasi [label="1 : N", arrowhead=crow, arrowtail=tee, dir=both];
+  registrasi -> anggota_registrasi [label="1 : N\n(pendaki N:N registrasi)", arrowhead=crow, arrowtail=tee, dir=both];
+  registrasi -> pembayaran [label="1 : 1", arrowhead=tee, arrowtail=tee, dir=both];
+  registrasi -> log_pos [label="1 : N", arrowhead=crow, arrowtail=tee, dir=both];
+  pos -> log_pos [label="1 : N\n(registrasi N:N pos)", arrowhead=crow, arrowtail=tee, dir=both];
+}
