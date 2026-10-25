@@ -127,7 +127,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 2. getDataPendaki
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki`
+- **URL:** `https://pendaki-be.vercel.app/pendaki`
 - **Deskripsi:** Menampilkan seluruh data pendaki yang tersimpan
 - **Header:** -
 - **Response Sukses (200):**
@@ -144,7 +144,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 3. getDataPendakiById
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki/:id`
+- **URL:** `https://pendaki-be.vercel.app/pendaki/:id`
 - **Deskripsi:** Menampilkan data seorang pendaki berdasarkan ID
 - **Header:** -
 - **Response Sukses (200):** `{ "data": { "id": 3, "nik": "...", "nama_lengkap": "Andi Pratama", ... } }`
@@ -153,7 +153,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 4. ubahDataPendaki
 
 - **Method:** PUT / PATCH
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki/:id`
+- **URL:** `https://pendaki-be.vercel.app/pendaki/:id`
 - **Deskripsi:** Mengubah data pendaki yang sudah tersimpan (hanya field yang dikirim)
 - **Header:** `Content-Type: application/json`
 - **Request Body (contoh):**
@@ -174,7 +174,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 5. hapusDataPendaki
 
 - **Method:** DELETE
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki/:id`
+- **URL:** `https://pendaki-be.vercel.app/pendaki/:id`
 - **Deskripsi:** Menghapus data pendaki berdasarkan ID
 - **Header:** -
 - **Response Sukses (200):** `{ "message": "Data pendaki berhasil dihapus" }`
@@ -185,7 +185,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 6. cariDataPendaki
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki/cari?q=andi`
+- **URL:** `https://pendaki-be.vercel.app/pendaki/cari?q=andi`
 - **Deskripsi:** Mencari data pendaki berdasarkan nama atau NIK
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ { "id": 3, "nama_lengkap": "Andi Pratama", ... } ] }`
@@ -194,7 +194,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 7. tambahDataGunung
 
 - **Method:** POST
-- **URL:** `https://NAMA-PROJECT.vercel.app/gunung`
+- **URL:** `https://pendaki-be.vercel.app/gunung`
 - **Deskripsi:** Menambahkan data gunung (nama gunung, lokasi, dan ketinggian)
 - **Header:** `Content-Type: application/json`
 - **Request Body (contoh):**
@@ -215,7 +215,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 8. getDataGunung
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/gunung`
+- **URL:** `https://pendaki-be.vercel.app/gunung`
 - **Deskripsi:** Menampilkan daftar gunung yang tersimpan
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ { "id": 1, "nama": "Gunung Slamet", ... } ] }`
@@ -223,7 +223,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 9. cariDataGunung
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/gunung/cari?nama=slamet`
+- **URL:** `https://pendaki-be.vercel.app/gunung/cari?nama=slamet`
 - **Deskripsi:** Mencari data gunung berdasarkan nama
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ { "id": 1, "nama": "Gunung Slamet", ... } ] }`
@@ -232,7 +232,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 10. tambahDataPendakian
 
 - **Method:** POST
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendakian`
+- **URL:** `https://pendaki-be.vercel.app/pendakian`
 - **Deskripsi:** Menambahkan data pendakian baru (pendaki, jalur/gunung yang didaki, dan tanggal pendakian). Pendaki yang mendaftar otomatis menjadi ketua rombongan.
 - **Header:** `Content-Type: application/json`
 - **Request Body (contoh):**
@@ -254,7 +254,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 11. getDataPendakian
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendakian`
+- **URL:** `https://pendaki-be.vercel.app/pendakian`
 - **Deskripsi:** Menampilkan seluruh data pendakian yang tersimpan
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ { "id": 1, "tanggal_naik": "2026-11-10", ... } ] }`
@@ -262,7 +262,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 12. getDataPendakianByGunung
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/gunung/:id/pendakian`
+- **URL:** `https://pendaki-be.vercel.app/gunung/:id/pendakian`
 - **Deskripsi:** Menampilkan data pendakian pada gunung tertentu
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ ... ] }`
@@ -271,7 +271,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 13. ubahDataPendakian
 
 - **Method:** PUT / PATCH
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendakian/:id`
+- **URL:** `https://pendaki-be.vercel.app/pendakian/:id`
 - **Deskripsi:** Mengubah informasi data pendakian yang sudah tersimpan (hanya field yang dikirim)
 - **Header:** `Content-Type: application/json`
 - **Request Body (contoh):**
@@ -290,7 +290,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 14. hapusDataPendakian
 
 - **Method:** DELETE
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendakian/:id`
+- **URL:** `https://pendaki-be.vercel.app/pendakian/:id`
 - **Deskripsi:** Menghapus data pendakian berdasarkan ID
 - **Header:** -
 - **Response Sukses (200):** `{ "message": "Data pendakian berhasil dihapus" }`
@@ -299,7 +299,7 @@ Wajib: `nik`, `nama_lengkap`, `jenis_kelamin` (`L` / `P`), `tanggal_lahir`, `no_
 ### 15. getRiwayatPendakian
 
 - **Method:** GET
-- **URL:** `https://NAMA-PROJECT.vercel.app/pendaki/:id/pendakian`
+- **URL:** `https://pendaki-be.vercel.app/pendaki/:id/pendakian`
 - **Deskripsi:** Menampilkan riwayat pendakian berdasarkan data seorang pendaki
 - **Header:** -
 - **Response Sukses (200):** `{ "data": [ ... ] }`
